@@ -187,7 +187,6 @@ function addToggle() {
     button.style.fontSize = '13px';
   }
 
-  // PASSIAMO IL PARAMETRO blocked
   let button = createCustomButton(blocked);
   
   button.onclick = () => {
@@ -206,10 +205,8 @@ function addToggle() {
 }
 
 (function init() {
-  // 1. ESEGUI QUESTA FUNZIONE PER PRIMA IN ASSOLUTO
   injectCss();
 
-  // 2. Continua con la logica di blocco esistente
   if (blocked) {
     blockVideoGridLoad();
     removeShorts();
@@ -219,7 +216,5 @@ function addToggle() {
       wipeHome();
     }, 1000);
   }
-  
-  // 3. Aggiungi il pulsante di controllo
   addToggle();
 })();

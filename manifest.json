@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Anti Shorts YouTube",
+  "description": "Nasconde e blocca gli YouTube Shorts. BASTA SCROLL COMPULSIVO!",
+  "version": "1.0",
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["*://*.youtube.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_title": "Anti Shorts Attivo!"
+  }
+}

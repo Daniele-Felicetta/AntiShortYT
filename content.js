@@ -123,6 +123,8 @@ function injectCss() {
 }
 
 function wipeHome() {
+  if (!blocked) return;
+  
   const browse = document.querySelector('ytd-two-column-browse-results-renderer');
   if (browse && blocked) browse.innerHTML = '';
 
@@ -206,15 +208,16 @@ function addToggle() {
 
 (function init() {
   injectCss();
+  removeShorts();
 
   if (blocked) {
     blockVideoGridLoad();
-    removeShorts();
     wipeHome();
     setInterval(() => {
       removeShorts();
       wipeHome();
     }, 1000);
   }
+  setInterval(removeShorts, 1000);
   addToggle();
 })();
